@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GitHub Nebula</title>
+  <meta name="description" content="An interactive cosmic visualization of my GitHub profile and repositories." />
+  <link rel="preconnect" href="https://api.github.com">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="nebula"></canvas>
+
+  <header class="hero">
+    <h1 class="title">
+      <span class="greet" id="greet">Hello!</span>
+      I’m <span class="username" id="username">you</span>
+    </h1>
+    <p class="subtitle">Exploring code among the stars — each node is one of my public repositories.</p>
+  </header>
+
+  <aside class="profile-card" id="profile">
+    <img id="avatar" class="avatar" alt="Profile avatar" />
+    <div class="meta">
+      <div class="name-row">
+        <strong id="name">Loading…</strong>
+        <a id="profileLink" href="#" target="_blank" rel="noopener" title="View GitHub Profile" aria-label="View GitHub Profile">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M10.5 2a.75.75 0 0 0 0 1.5h1.19L6.22 8.97a.75.75 0 1 0 1.06 1.06l5.47-5.47V5.75a.75.75 0 0 0 1.5 0V2.75A.75.75 0 0 0 13.5 2h-3zM3.75 3A1.75 1.75 0 0 0 2 4.75v7.5C2 13.99 3 15 4.75 15h7.5A1.75 1.75 0 0 0 14 13.25v-3a.75.75 0 0 0-1.5 0v3c0 .14-.11.25-.25.25h-7.5a.25.25 0 0 1-.25-.25v-7.5c0-.14.11-.25.25-.25h3a.75.75 0 0 0 0-1.5h-3z"/></svg>
+        </a>
+      </div>
+      <div class="stats">
+        <span id="statRepos">—</span>
+        <span id="statStars">—</span>
+        <span id="statFollowers">—</span>
+      </div>
+      <div class="tagline" id="bio">Crafting things that spark curiosity.</div>
+      <div class="updated" id="updated">•</div>
+    </div>
+  </aside>
+
+  <div class="tooltip" id="tooltip" role="tooltip" aria-hidden="true"></div>
+
+  <noscript>
+    <div class="noscript">
+      This page shows an interactive visualization of your GitHub repositories, but it needs JavaScript to run.
+    </div>
+  </noscript>
+
+  <script src="script.js"></script>
+</body>
+</html>
