@@ -6,12 +6,12 @@
   <title>GitHub Nebula</title>
   <meta name="description" content="An interactive cosmic visualization of my GitHub profile and repositories." />
   <link rel="preconnect" href="https://api.github.com">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
-  <canvas id="nebula"></canvas>
+  <canvas id="nebula" aria-hidden="true"></canvas>
 
-  <header class="hero">
+  <header class="hero" role="banner" aria-label="Intro">
     <h1 class="title">
       <span class="greet" id="greet">Hello!</span>
       I’m <span class="username" id="username">you</span>
@@ -19,7 +19,7 @@
     <p class="subtitle">Exploring code among the stars — each node is one of my public repositories.</p>
   </header>
 
-  <aside class="profile-card" id="profile">
+  <aside class="profile-card" id="profile" aria-live="polite">
     <img id="avatar" class="avatar" alt="Profile avatar" />
     <div class="meta">
       <div class="name-row">
@@ -46,6 +46,6 @@
     </div>
   </noscript>
 
-  <script src="script.js"></script>
+  <script type="module" src="src/main.js"></script>
 </body>
 </html>
