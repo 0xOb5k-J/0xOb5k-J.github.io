@@ -52,6 +52,10 @@ If you view this file on github.com, scripts are sandboxed and won't run.
   --accent-2: #79c0ff;
   --err: #ff6b6b;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Tunable card height for the terminal “window” */
+  --term-height: 72vh;
+  --term-height-max: 740px;
 }
 .theme-light { --bg:#f7f9fb; --fg:#0b1220; --dim:#5a6a7a; --accent:#0ea5e9; --accent-2:#16a34a; --err:#dc2626; }
 .theme-matrix { --bg:#031a03; --fg:#d4ffd4; --dim:#6bb36b; --accent:#00ff6a; --accent-2:#41ffb0; --err:#ff5170; }
@@ -61,9 +65,25 @@ If you view this file on github.com, scripts are sandboxed and won't run.
 html, body { height: 100%; }
 body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--mono); }
 #app { min-height: 100vh; display: grid; place-items: center; }
-.wrap { width: min(980px, 94vw); margin: 4vh auto; background: linear-gradient(180deg, color-mix(in lch, var(--bg), black 6%) 0%, var(--bg) 100%);
-  border: 1px solid color-mix(in lch, var(--fg), var(--bg) 85%); border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,.35); overflow: hidden; }
-header, footer { padding: 10px 14px; border-bottom: 1px solid color-mix(in lch, var(--fg), var(--bg) 85%); }
+
+/* Card: fixed height + flex column so terminal area can scroll */
+.wrap {
+  width: min(980px, 94vw);
+  margin: 4vh auto;
+  background: linear-gradient(180deg, color-mix(in lch, var(--bg), black 6%) 0%, var(--bg) 100%);
+  border: 1px solid color-mix(in lch, var(--fg), var(--bg) 85%);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.35);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  height: min(var(--term-height), var(--term-height-max));
+}
+header, footer {
+  padding: 10px 14px;
+  border-bottom: 1px solid color-mix(in lch, var(--fg), var(--bg) 85%);
+}
 footer { border-top: 1px solid color-mix(in lch, var(--fg), var(--bg) 85%); border-bottom: 0; }
 .brand { display: flex; align-items: center; gap: 8px; color: var(--dim); }
 .brand strong { color: var(--fg); }
@@ -74,9 +94,26 @@ footer { border-top: 1px solid color-mix(in lch, var(--fg), var(--bg) 85%); bord
 .theme-toggle { color: var(--dim); float: right; }
 kbd { background: color-mix(in lch, var(--fg), var(--bg) 90%); color: var(--fg); padding: 2px 6px; border-radius: 4px; border: 1px solid color-mix(in lch, var(--fg), var(--bg) 80%); }
 
-#terminal { padding: 16px; min-height: 50vh; }
-#screen { white-space: pre-wrap; font-size: 14px; line-height: 1.6; }
-.input-line { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+/* Terminal viewport: fills the remaining card height; screen scrolls */
+#terminal {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 auto;
+  min-height: 0; /* important: allow child (#screen) to shrink and scroll */
+}
+#screen {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+  overscroll-behavior: contain;
+  padding-right: 2px; /* breathing room for scrollbar */
+}
+.input-line { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
 .prompt { color: var(--accent); }
 #cmd { flex: 1; background: transparent; border: none; outline: none; color: var(--fg); font: inherit; caret-color: var(--accent-2); }
 #cmd::placeholder { color: color-mix(in lch, var(--fg), var(--bg) 70%); }
@@ -89,6 +126,7 @@ a:hover { text-decoration: underline; }
 
 @media (max-width: 560px) {
   .theme-toggle { display: none; }
+  .wrap { height: min(84vh, 680px); }
 }
 </style>
 
@@ -113,10 +151,10 @@ a:hover { text-decoration: underline; }
   const commands = {};
   const files = {
     "README.txt": "Welcome to 0xOb5k‑J's one-file terminal. Try 'help'.",
-    "links.txt": "GitHub  : https://github.com/0xOb5k-J\nWebsite : https://0xOb5k-J.github.io\nTwitter : https://x.com/",
-    "projects.txt": "- github.io (this site)\n- experiments\n- dotfiles\nTip: type 'open repo' to visit.",
+    "links.txt": "GitHub  : https://github.com/0xOb5k-J\\nWebsite : https://0xOb5k-J.github.io\\nTwitter : https://x.com/",
+    "projects.txt": "- github.io (this site)\\n- experiments\\n- dotfiles\\nTip: type 'open repo' to visit.",
     "quote.txt": "Unique is just attention you earned honestly.",
-    "hello.md": "# hello, world\nthis is a tiny file living in memory."
+    "hello.md": "# hello, world\\nthis is a tiny file living in memory."
   };
   const fileNames = Object.keys(files).sort();
 
@@ -129,21 +167,21 @@ a:hover { text-decoration: underline; }
     div.className = "line";
     div.innerHTML = html;
     screen.appendChild(div);
+    // Autoscroll inside the terminal viewport, not the page
     screen.scrollTop = screen.scrollHeight;
-    window.scrollTo({ top: document.body.scrollHeight });
   }
 
   function printBanner() {
     const art = [
       "      ___  __   ___ _      _    _     _      ",
-      "     / _ \/ /  / _ \ |__ _| |__| |__ (_)__ _ ",
-      "    / , _/ _ \/ ___/ / _` | '_ \ '_ \/ _` |",
-      "   /_/|_/_/\_/_/  /_/\__,_|_.__/_.__/_\__,_|",
+      "     / _ \\\\/ /  / _ \\\\ |__ _| |__| |__ (_)__ _ ",
+      "    / , _/ _ \\\\/ ___/ / _` | '_ \\\\ '_ \\\\/ _` |",
+      "   /_/|_/_/\\\\_/_/  /_/\\\\__,_|_.__/_.__/_\\\\__,_|",
       "",
       "   Welcome to 0xOb5k‑J • Interactive Terminal",
       "   Type 'help' to see available commands."
-    ].join("\n");
-    println(`<span style=\"color: var(--accent-2)\">${art}</span>`);
+    ].join("\\n");
+    println(`<span style="color: var(--accent-2)">${art}</span>`);
   }
 
   function typeOut(text, speed = 10) {
@@ -151,7 +189,7 @@ a:hover { text-decoration: underline; }
       let i = 0, buf = "";
       const timer = setInterval(() => {
         buf += text[i++];
-        if (text[i-1] === "\n") println(buf.slice(0, -1)), buf = "";
+        if (text[i-1] === "\\n") println(buf.slice(0, -1)), buf = "";
         if (i >= text.length) { clearInterval(timer); if (buf) println(buf); resolve(); }
       }, speed);
     });
@@ -173,7 +211,7 @@ a:hover { text-decoration: underline; }
       ["banner", "show the banner"],
       ["clear", "clear the screen"]
     ];
-    const rows = list.map(([c, d]) => `  <span style=\"color:var(--accent)\">${c.padEnd(24,' ')}</span> ${d}`).join("\n");
+    const rows = list.map(([c, d]) => `  <span style="color:var(--accent)">${c.padEnd(24,' ')}</span> ${d}`).join("\\n");
     println(rows);
   }
 
@@ -200,24 +238,24 @@ a:hover { text-decoration: underline; }
   function echo(args) { println(args.join(" ")); }
 
   function ls() {
-    const cols = fileNames.map(n => ` ${n}`).join("\n");
+    const cols = fileNames.map(n => ` ${n}`).join("\\n");
     println(cols);
   }
 
   function cat(args) {
     const name = args.join(" ");
-    if (!name) return println(`<span class=\"error\">usage:</span> cat &lt;file&gt;`);
+    if (!name) return println(`<span class="error">usage:</span> cat &lt;file&gt;`);
     if (files[name]) {
       println(files[name]);
     } else {
-      println(`<span class=\"error\">cat:</span> no such file: ${name}`);
+      println(`<span class="error">cat:</span> no such file: ${name}`);
     }
   }
 
   function openCmd(args) {
     const key = (args[0] || "").toLowerCase();
     let url = null;
-    if (/^https?:\/\//.test(args[0])) url = args[0];
+    if (/^https?:\\/\\//.test(args[0])) url = args[0];
     else if (key === "repo") url = "https://github.com/0xOb5k-J/0xOb5k-J.github.io";
     else if (key === "profile") url = "https://github.com/0xOb5k-J";
     else if (key === "site") url = "https://0xOb5k-J.github.io";
@@ -230,7 +268,7 @@ a:hover { text-decoration: underline; }
     const t = (args[0] || "").toLowerCase();
     const themes = ["dark","light","matrix","dracula"];
     if (!themes.includes(t)) {
-      println(`current theme: <span style=\"color:var(--accent)\">${getTheme()}</span>`);
+      println(`current theme: <span style="color:var(--accent)">${getTheme()}</span>`);
       println(`available: ${themes.join(", ")}`);
       return;
     }
@@ -250,7 +288,7 @@ a:hover { text-decoration: underline; }
   }
 
   function complete(text) {
-    const parts = text.trim().split(/\s+/);
+    const parts = text.trim().split(/\\s+/);
     if (parts.length === 1) {
       const opts = Object.keys(commands).filter(c => c.startsWith(parts[0]));
       if (opts.length === 1) return opts[0];
@@ -284,19 +322,19 @@ a:hover { text-decoration: underline; }
 
   function parseAndRun(line) {
     if (!line.trim()) return;
-    const [cmd, ...args] = line.trim().split(/\s+/);
+    const [cmd, ...args] = line.trim().split(/\\s+/);
     const fn = commands[cmd];
-    println(`<span class=\"prompt\">${state.user}@${state.host}:${state.cwd}$</span> ${escapeHTML(line)}`);
+    println(`<span class="prompt">${state.user}@${state.host}:${state.cwd}$</span> ${escapeHTML(line)}`);
     if (fn) {
       if (fn.length > 0) fn(args);
       else fn();
     } else {
-      println(`<span class=\"error\">${cmd}:</span> command not found. Try 'help'.`);
+      println(`<span class="error">${cmd}:</span> command not found. Try 'help'.`);
     }
   }
 
   function escapeHTML(s) {
-    return s.replace(/[&<>\"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   }
 
   function init() {
@@ -305,7 +343,7 @@ a:hover { text-decoration: underline; }
     setPrompt();
     if (state.firstRun) {
       printBanner();
-      typeOut("Type 'help' and press Enter.\n", 12).then(() => {});
+      typeOut("Type 'help' and press Enter.\\n", 12).then(() => {});
       state.firstRun = false;
     }
     input.focus();
