@@ -13,13 +13,14 @@ const typewriterTexts = [
 
 const skillsData = [
     {
-        title: 'Red Teaming & Penetration Testing',
+        title: 'Red Teaming & Offensive Security',
         icon: '⚔️',
         skills: [
-            { name: 'Red Team Operations', level: 92 },
-            { name: 'RedTeam Infra Development', level: 88 },
-            { name: 'Advanced Process Injection', level: 85 },
-            { name: 'Threat Hunting', level: 90 },
+            { name: 'Red Team Operations', level: 95 },
+            { name: 'Exploit Development', level: 90 },
+            { name: 'Malware Development', level: 88 },
+            { name: 'C2C Operations', level: 92 },
+            { name: 'Threat Simulation & Emulation', level: 90 },
         ]
     },
     {
@@ -27,9 +28,10 @@ const skillsData = [
         icon: '🔍',
         skills: [
             { name: 'Digital Forensics and Incident Response', level: 95 },
-            { name: 'Windows Forensics', level: 92 },
-            { name: 'Volatility3 Memory Analysis', level: 90 },
-            { name: 'OSForensics', level: 88 },
+            { name: 'Memory Forensics', level: 92 },
+            { name: 'Threat Hunting', level: 93 },
+            { name: 'Windows Forensics', level: 90 },
+            { name: 'MITRE D3FEND Framework', level: 88 },
         ]
     },
     {
@@ -53,32 +55,32 @@ const skillsData = [
         ]
     },
     {
-        title: 'AI & Modern Technologies',
-        icon: '�',
+        title: 'AI & Security Automation',
+        icon: '🤖',
         skills: [
-            { name: 'Model Context Protocol (MCP) servers', level: 92 },
-            { name: 'Gen AI', level: 85 },
+            { name: 'Model Context Protocol (MCP) Development', level: 95 },
+            { name: 'Generative AI in Cybersecurity', level: 90 },
             { name: 'AI-powered Threat Hunting', level: 88 },
-            { name: 'Binary Analysis with AI', level: 85 },
+            { name: 'Security Automations', level: 92 },
         ]
     }
 ];
 
 const toolsData = [
-    'Python', 'Assembly', 'PowerShell', 'Bash', 'Volatility3', 'IDA Pro',
-    'Belkasoft', 'OSForensics', 'Kali Linux', 'Metasploit', 'Burp Suite',
+    'Python', 'Assembly', 'PowerShell', 'Bash', 'C++', 'Volatility3', 'IDA Pro',
+    'Belkasoft', 'OSForensics', 'Kali Linux', 'Metasploit', 'Impacket', 'Burp Suite',
     'Wireshark', 'YARA', 'Ghidra', 'x64dbg', 'OllyDbg', 'Nmap', 'OSINT Tools',
-    'Mythic C2', 'Sliver C2', 'Havoc C2', 'Empire C2', 'Sysinternals', 
+    'Havoc C2', 'Mythic C2', 'Sliver C2', 'Empire C2', 'Sysinternals', 
     'MITRE ATT&CK', 'MITRE D3FEND', 'GHDB', 'Cuckoo Sandbox', 
-    'Red Team Infra Development', 'CloudFlare', 'Model Context Protocol', 'AI-powered Analysis'
+    'Red Team Infrastructure', 'CloudFlare', 'Model Context Protocol', 'AI Security Automation'
 ];
 
 const projectsData = [
     {
         title: 'Self-Deleting-Exploit/Payload',
-        description: 'Advanced Process Injection with Self Deletion Capabilities: A Windows 11 24H2 Compatible Implementation',
+        description: 'Windows 11-compatible advanced process injection with stealth deletion capabilities',
         technologies: ['C++', 'Assembly', 'Windows API', 'Process Injection'],
-        status: 'development',
+        status: 'completed',
         type: 'Malware Development',
         features: [
             'Advanced process injection techniques',
@@ -89,43 +91,56 @@ const projectsData = [
         github: 'https://github.com/0xOb5k-J/Self_Deleting_Exploit'
     },
     {
-        title: 'Threat-Hunting MCP',
-        description: 'An automated AI powered framework for super fast and accurate threat hunting.',
-        technologies: ['Python', 'AI/ML', 'Model Context Protocol', 'Threat Intelligence'],
+        title: 'Impacket-MCP',
+        description: 'AI-Powered Impacket-Suite for offensive security automation with intelligent command execution',
+        technologies: ['Python', 'Impacket', 'Model Context Protocol', 'AI/ML'],
         status: 'development',
-        type: 'AI Security Tool',
+        type: 'Offensive Security',
         features: [
-            'AI-powered threat detection',
-            'Automated threat hunting',
-            'Real-time analysis',
-            'MCP integration with VS Code'
+            'AI-assisted offensive operations',
+            'Automated Impacket tool execution',
+            'Intelligent command suggestions',
+            'VS Code integration'
+        ]
+    },
+    {
+        title: 'Havoc-MCP',
+        description: 'AI-assisted Havoc C2 Framework for automated payload creation and command execution',
+        technologies: ['Python', 'Havoc C2', 'Model Context Protocol', 'AI Automation'],
+        status: 'development',
+        type: 'C2 Framework',
+        features: [
+            'Automated payload generation',
+            'AI-assisted command execution',
+            'Real-time C2 operations',
+            'MCP integration for VS Code'
         ]
     },
     {
         title: 'Volatility3-MCP',
-        description: 'MCP Server based on volatility3 with respect to Github Copilot VS Code extension as MCP Client (but is compatible with any mcp client)',
+        description: 'AI-integrated memory forensics tool with batch executions for faster results and comprehensive analysis',
         technologies: ['Python', 'Volatility3', 'Model Context Protocol', 'Memory Analysis'],
         status: 'completed',
         type: 'Digital Forensics',
         features: [
             'Memory analysis automation',
+            'Batch execution support',
             'AI-assisted forensic analysis',
-            'VS Code integration',
             'Comprehensive artifact extraction'
         ],
         github: 'https://github.com/0xOb5k-J/volatility3-mcp'
     },
     {
         title: 'IDApro-MCP',
-        description: 'A comprehensive binary analysis toolkit that bridges IDA Pro with modern AI assistants through the Model Context Protocol (MCP).',
+        description: 'AI-assisted Reverse Engineering framework with multi-instance support for advanced packer analysis',
         technologies: ['Python', 'IDA Pro', 'Model Context Protocol', 'Binary Analysis'],
         status: 'completed',
         type: 'Reverse Engineering',
         features: [
+            'Multi-instance support',
             'AI-powered binary analysis',
-            'IDA Pro automation',
-            'Advanced reverse engineering',
-            'Malware analysis capabilities'
+            'Advanced packer analysis',
+            'Malware reverse engineering'
         ],
         github: 'https://github.com/0xOb5k-J/IDApro-MCP'
     }
@@ -177,38 +192,45 @@ const terminalCommands = {
     ],
     whoami: () => [
         'User: Jakkaraju Varshith',
-        'Role: Cybersecurity Student | Red Team Specialist',
+        'Role: Security Researcher | Red Team Specialist',
         'Education: M.Sc Cyber Security and Digital Forensics (2024-2026)',
-        'Status: Currently pursuing CRTA certification',
+        'Experience: 2+ years in Red Teaming & Offensive Security',
+        'Status: Currently pursuing CBFRPro certification',
         ''
     ],
     skills: () => [
-        'Core Security Skills:',
-        '├── Red Teaming & Infrastructure Development (Expert)',
-        '├── Digital Forensics and Incident Response (Expert)',
-        '├── Malware Analysis & Development (Advanced)',
-        '├── Threat Hunting (Advanced)',
-        '├── Reverse Engineering (Advanced)',
-        '├── Model Context Protocol Development (Expert)',
-        '└── AI-powered Security Analysis (Advanced)',
+        'Offensive Security:',
+        '├── Red Team Operations (Expert)',
+        '├── Exploit Development (Advanced)',
+        '├── Malware Development (Advanced)',
+        '├── C2C Operations (Expert)',
+        '├── Threat Simulation & Emulation (Advanced)',
+        '└── MITRE ATT&CK Framework (Expert)',
         '',
-        'Programming Languages:',
+        'Forensics & Defense:',
+        '├── Digital Forensics and Incident Response (Expert)',
+        '├── Threat Hunting (Expert)',
+        '├── Reverse Engineering (Advanced)',
+        '├── Memory Forensics (Advanced)',
+        '└── MITRE D3FEND Framework (Advanced)',
+        '',
+        'Programming & Scripting:',
         '├── Python (Expert)',
         '├── Assembly (Advanced)',
         '├── PowerShell (Advanced)',
         '└── Bash (Advanced)',
         '',
-        'Certifications:',
-        '├── Certified Red-Team Infrastructure Developer (CRT-ID)',
-        '├── Microsoft Cybersecurity Architect',
-        '├── ISO/IEC 27001:2022 Lead Auditor',
-        '└── Multiple OPSWAT Associate Certifications',
+        'Other Expertise:',
+        '├── Model Context Protocol Development (Expert)',
+        '├── Generative AI in Cybersecurity (Advanced)',
+        '└── Security Automations (Expert)',
         ''
     ],
     projects: () => [
-        'Active Security Projects:',
-        '├── Self-Deleting-Exploit/Payload [DEVELOPMENT]',
-        '├── Threat-Hunting MCP [DEVELOPMENT]',
+        'Security Projects Portfolio:',
+        '├── Self-Deleting-Exploit/Payload [COMPLETED]',
+        '├── Impacket-MCP [ONGOING]',
+        '├── Havoc-MCP [ONGOING]',
         '├── Volatility3-MCP [COMPLETED]',
         '└── IDApro-MCP [COMPLETED]',
         '',
@@ -257,7 +279,7 @@ const terminalCommands = {
         'M.Sc Cyber Security and Digital Forensics',
         '├── Institution: Rashtriya Raksha University, Gandhinagar',
         '├── Duration: 2024 - 2026',
-        '├── GPA: 7.37/10',
+        '├── GPA: 7.32/10',
         '└── Focus: Red Team Operations, DFIR & Threat Hunting',
         '',
         'B.Sc (Hons) Forensic Science',
@@ -265,36 +287,48 @@ const terminalCommands = {
         '├── Duration: 2021 - 2024',
         '├── GPA: 8.37/10',
         '└── Focus: Digital Evidence Analysis & Cybersecurity',
+        '',
+        '12th Grade',
+        '├── Institution: Shivani Jr. College',
+        '├── Duration: 2019 - 2021',
+        '└── GPA: 8.40/10',
+        '',
+        '10th Grade',
+        '├── Institution: Oxford High School',
+        '├── Duration: 2018 - 2019',
+        '└── GPA: 8.50/10',
         ''
     ],
     achievements: () => [
         'Awards & Recognition:',
         '',
-        '🏆 1st Position - CodeArena 2.0 (SIH25 Internal Hackathon)',
-        '🥈 1st Runner up - KURUKSHETRA System Security Research',
+        '🏆 1st Position - CodeArena 2.0 (SIH25 Internal Hackathon), RRU',
+        '🥈 1st Runner-up - Kurukshetra Hackathon (System Security), DRDO, DIA-SVPCoE',
         '🎯 Grand Finalist - Smart India Hackathon 2024',
-        '🏅 Multiple CTF Competition Winner',
+        '🏅 Multiple CTF Competitions - Winner',
+        '🎮 CTF Challenges Creator',
         '',
-        'Volunteering Experience:',
-        '├── Red Teamer - Internal Live Fire Exercises (RRU)',
-        '├── NXC 2025 - Red Teamer & AI Training Assistant',
-        '├── CII-SECX 2025 - Red Teamer & AI Training Assistant',
-        '└── NXC 2024 - Blue Team & DFIR Training Assistant',
+        'Experience & Volunteering:',
+        '├── Red Teamer - Multiple Internal & External Live-Fire Exercises (RRU)',
+        '├── Bharat NXC 2025 - Red Teamer & AI in Cybersecurity Training Assistant',
+        '├── CII-SECX 2025 - Red Teamer & AI in Cybersecurity Training Assistant',
+        '└── Bharat NXC 2024 - Blue Teamer & DFIR Training Assistant',
         ''
     ],
     certifications: () => [
         'Current Certifications:',
         '',
+        '├── Certified Red Team Analyst (CRTA) - CWL',
         '├── Certified Red-Team Infrastructure Developer (CRT-ID) - CWL',
         '├── Microsoft Cybersecurity Architect - Microsoft',
+        '├── Certified Network Security Practitioner (CNSP) - SecOps Group',
         '├── ISO/IEC 27001:2022 Lead Auditor - Mastermind',
-        '├── Certified Network Security Practitioner (CNSP)',
-        '├── Multiple OPSWAT Associate Certifications',
-        '├── Belkasoft Digital Forensics Certifications',
-        '└── OSForensics Triage Certification',
+        '├── OPSWAT Associate Certifications (Multiple) - OPSWAT Academy',
+        '├── Windows & Advanced Forensics - Belkasoft',
+        '└── OSForensics Triage Certification - PassMark Software',
         '',
         'In Progress:',
-        '└── Certified Red Team Analyst (CRTA) - CWL',
+        '└── Certified Binary Fuzzing & Reversing Professional (CBFRPro) - SecOps Group',
         ''
     ],
     volatility: () => [
