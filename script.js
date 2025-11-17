@@ -572,20 +572,6 @@ function initializeContact() {
         
         container.appendChild(methodElement);
     });
-    
-    // Contact form
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData);
-        
-        console.log('Form submitted:', data);
-        
-        // Show success message
-        alert('Message sent successfully! (This is a demo)');
-        this.reset();
-    });
 }
 
 // Terminal
