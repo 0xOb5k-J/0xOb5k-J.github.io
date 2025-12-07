@@ -826,6 +826,7 @@ function initializeContact() {
 // Terminal
 function initializeTerminal() {
     const terminalInput = document.getElementById('terminalInput');
+    const availableCommands = Object.keys(terminalCommands);
     
     terminalInput.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
@@ -837,6 +838,31 @@ function initializeTerminal() {
             if (command) {
                 terminalHistory.push(command);
                 terminalHistoryIndex = terminalHistory.length;
+            }
+        } else if (e.key === 'Tab') {
+            e.preventDefault();
+            const currentInput = this.value.toLowerCase().trim();
+            
+            if (currentInput === '') {
+                // Show all available commands
+                showAutocompleteHint(availableCommands);
+            } else {
+                // Find matching commands
+                const matches = availableCommands.filter(cmd => cmd.startsWith(currentInput));
+                
+                if (matches.length === 1) {
+                    // Single match - autocomplete
+                    this.value = matches[0];
+                } else if (matches.length > 1) {
+                    // Multiple matches - show options
+                    showAutocompleteHint(matches);
+                    
+                    // Find common prefix and autocomplete to it
+                    const commonPrefix = findCommonPrefix(matches);
+                    if (commonPrefix.length > currentInput.length) {
+                        this.value = commonPrefix;
+                    }
+                }
             }
         } else if (e.key === 'ArrowUp') {
             e.preventDefault();
@@ -857,6 +883,31 @@ function initializeTerminal() {
             closeTerminal();
         }
     });
+}
+
+// Show autocomplete hints in terminal
+function showAutocompleteHint(commands) {
+    const content = document.getElementById('terminalContent');
+    const hintDiv = document.createElement('div');
+    hintDiv.style.color = 'var(--neon-blue)';
+    hintDiv.innerHTML = `<span style="color: var(--text-muted);">Available: </span>${commands.join('  ')}`;
+    content.appendChild(hintDiv);
+    content.scrollTop = content.scrollHeight;
+}
+
+// Find common prefix among strings
+function findCommonPrefix(strings) {
+    if (strings.length === 0) return '';
+    if (strings.length === 1) return strings[0];
+    
+    let prefix = strings[0];
+    for (let i = 1; i < strings.length; i++) {
+        while (strings[i].indexOf(prefix) !== 0) {
+            prefix = prefix.substring(0, prefix.length - 1);
+            if (prefix === '') return '';
+        }
+    }
+    return prefix;
 }
 
 function executeTerminalCommand(command) {
