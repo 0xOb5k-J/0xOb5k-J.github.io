@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Jakkaraju Varshith | Red Team Specialist & Digital Forensics Expert</title>
+    <meta name="description" content="Portfolio of a cybersecurity professional, red team specialist, and ethical hacker">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+    <!-- Matrix Background Canvas -->
+    <canvas id="matrixCanvas" class="matrix-bg"></canvas>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="glitch" data-text="V4R5H17H">V4R5H17H</span>
+            </div>
+            <div class="nav-items">
+                <a href="#hero" class="nav-item active" data-section="hero">
+                    <span class="nav-icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a href="#about" class="nav-item" data-section="about">
+                    <span class="nav-icon">👤</span>
+                    <span>About</span>
+                </a>
+                <a href="#skills" class="nav-item" data-section="skills">
+                    <span class="nav-icon">⚡</span>
+                    <span>Skills</span>
+                </a>
+                <a href="#projects" class="nav-item" data-section="projects">
+                    <span class="nav-icon">🔧</span>
+                    <span>Projects</span>
+                </a>
+                <a href="#certifications" class="nav-item" data-section="certifications">
+                    <span class="nav-icon">🏅</span>
+                    <span>Certs</span>
+                </a>
+                <a href="#contact" class="nav-item" data-section="contact">
+                    <span class="nav-icon">📡</span>
+                    <span>Contact</span>
+                </a>
+            </div>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-3d" id="hero3d"></div>
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="terminal-prompt">$ whoami</div>
+                        <h1 class="hero-title glitch" data-text="JAKKARAJU VARSHITH">
+                            JAKKARAJU VARSHITH
+                        </h1>
+                        <div class="typewriter-container">
+                            <span class="typewriter-prompt">&gt; </span>
+                            <span id="typewriter" class="typewriter"></span>
+                            <span class="cursor">|</span>
+                        </div>
+                        <p class="hero-description">
+                            Security researcher specializing in Red Teaming, Exploit Development, Threat Hunting, Digital Forensics & Incident Response 
+                            (DFIR), and Malware Analysis. Over 2 years of hands-on red teaming and offensive security experience across live-fire, academic, 
+                            and enterprise-scale simulations. Skilled in developing offensive security tools, red team infrastructure, and AI-driven 
+                            security automation. Strong academic foundation with hands-on expertise in malware reverse engineering, exploit development, 
+                            and MCP (Model Context Protocol) security tools.
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="hacker-btn primary" onclick="scrollToSection('projects')">
+                                View Projects
+                            </button>
+                            <a href="Jakkaraju_Varshith.pdf" download="Jakkaraju_Varshith_Resume.pdf" class="hacker-btn secondary">
+                                Download Resume
+                            </a>
+                            <button class="hacker-btn secondary" onclick="scrollToSection('contact')">
+                                Contact Me
+                            </button>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://in.linkedin.com/in/jakkaraju-varshith" class="social-link" title="LinkedIn">💼</a>
+                            <a href="https://github.com/0xOb5k-J" class="social-link" title="GitHub">🐙</a>
+                            <a href="tel:+917032419517" class="social-link" title="Phone">�</a>
+                            <a href="mailto:varshith14.jakkaraju@gmail.com" class="social-link" title="Email">📧</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="floating-objects" id="floatingObjects"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">↓</div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title glitch" data-text="ABOUT_ME.exe">ABOUT_ME.exe</h2>
+                <div class="about-grid">
+                    <div class="about-content">
+                        <div class="terminal">
+                            <div class="terminal-header">
+                                <div class="terminal-title">$ cat about.txt</div>
+                            </div>
+                            <div class="terminal-body">
+                                <p>Security researcher specializing in Red Teaming, Exploit Development, Threat Hunting, Digital Forensics & Incident Response (DFIR), and Malware Analysis. Over 2 years of hands-on red teaming and offensive security experience across live-fire, academic, and enterprise-scale simulations.</p>
+                                <p>Skilled in developing offensive security tools, red team infrastructure, and AI-driven security automation. Strong academic foundation with hands-on expertise in malware reverse engineering, exploit development, and MCP (Model Context Protocol) security tools.</p>
+                                <p>Active contributor to open-source security projects with multiple competition wins including 1st position in CodeArena 2.0, 1st Runner-up in Kurukshetra Hackathon (DRDO), and Grand Finalist of Smart India Hackathon 2024, demonstrating practical cybersecurity expertise and innovative problem-solving capabilities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-skills">
+                        <h3 class="skills-title">Core Competencies</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">Red Team Operations</div>
+                            <div class="skill-item">Exploit Development</div>
+                            <div class="skill-item">Malware Development</div>
+                            <div class="skill-item">C2C Operations</div>
+                            <div class="skill-item">Digital Forensics & IR</div>
+                            <div class="skill-item">Threat Hunting</div>
+                            <div class="skill-item">Reverse Engineering</div>
+                            <div class="skill-item">Memory Forensics</div>
+                            <div class="skill-item">MCP Development</div>
+                            <div class="skill-item">Python/Assembly</div>
+                            <div class="skill-item">AI Security Automation</div>
+                            <div class="skill-item">MITRE ATT&CK</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="education-section">
+            <div class="container">
+                <h2 class="section-title glitch" data-text="EDUCATION.log">EDUCATION.log</h2>
+                <div class="education-grid">
+                    <div class="education-item">
+                        <h3 class="education-title">M.Sc Cyber Security and Digital Forensics</h3>
+                        <p class="education-school">Rashtriya Raksha University, Gandhinagar</p>
+                        <p class="education-years">2024 - 2026</p>
+                    </div>
+                    <div class="education-item">
+                        <h3 class="education-title">B.Sc (Hons) Forensic Science</h3>
+                        <p class="education-school">G.D Goenka University</p>
+                        <p class="education-years">2021 - 2024</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <h2 class="section-title glitch" data-text="EXPERIENCE.sh">EXPERIENCE.sh</h2>
+                <p class="section-subtitle">$ cat /var/log/career_history.log</p>
+                <div class="experience-grid">
+                    <div class="experience-item">
+                        <div class="experience-icon">🔴</div>
+                        <div class="experience-content">
+                            <h3 class="experience-title">Red Teamer</h3>
+                            <p class="experience-org">Rashtriya Raksha University</p>
+                            <p class="experience-desc">Multiple Internal & External Live-Fire Exercises</p>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-icon">⚔️</div>
+                        <div class="experience-content">
+                            <h3 class="experience-title">Bharat NXC 2025</h3>
+                            <p class="experience-org">Red Teamer & AI in Cybersecurity Training Assistant</p>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-icon">🎯</div>
+                        <div class="experience-content">
+                            <h3 class="experience-title">CII-SECX 2025</h3>
+                            <p class="experience-org">Red Teamer & AI in Cybersecurity Training Assistant</p>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-icon">🛡️</div>
+                        <div class="experience-content">
+                            <h3 class="experience-title">Bharat NXC 2024</h3>
+                            <p class="experience-org">Blue Teamer & DFIR Training Assistant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="achievements-section">
+            <div class="container">
+                <h2 class="section-title glitch" data-text="ACHIEVEMENTS.exe">ACHIEVEMENTS.exe</h2>
+                <p class="section-subtitle">$ ./list_trophies --format=impressive</p>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🏆</div>
+                        <div class="achievement-info">
+                            <h3>1st Position</h3>
+                            <p>CodeArena 2.0 (SIH25 Internal Hackathon)</p>
+                            <span class="achievement-org">Rashtriya Raksha University</span>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🥈</div>
+                        <div class="achievement-info">
+                            <h3>1st Runner-up</h3>
+                            <p>Kurukshetra Hackathon (System Security Research)</p>
+                            <span class="achievement-org">DRDO, DIA-SVPCoE</span>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🎯</div>
+                        <div class="achievement-info">
+                            <h3>Grand Finalist</h3>
+                            <p>Smart India Hackathon 2024</p>
+                            <span class="achievement-org">Government of India</span>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🏅</div>
+                        <div class="achievement-info">
+                            <h3>Multiple CTF Wins</h3>
+                            <p>CTF Competitions - Winner</p>
+                            <span class="achievement-org">Various Platforms</span>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🎮</div>
+                        <div class="achievement-info">
+                            <h3>CTF Creator</h3>
+                            <p>CTF Challenges Creator</p>
+                            <span class="achievement-org">Security Community</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title glitch" data-text="SKILLS.db">SKILLS.db</h2>
+                <p class="section-subtitle">$ query --select skills --from experience --where expertise='high'</p>
+                <div class="skills-categories" id="skillsContainer">
+                    <!-- Skills will be populated by JavaScript -->
+                </div>
+                <div class="tools-section">
+                    <h3 class="tools-title">Tools & Technologies</h3>
+                    <div class="tools-container" id="toolsContainer">
+                        <!-- Tools will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Gallery Section -->
+        <section id="certifications" class="certifications-section">
+            <div class="container">
+                <h2 class="section-title glitch" data-text="CERTS.json">CERTS.json</h2>
+                <p class="section-subtitle">$ ls -la ~/certifications/ | Hover for badge • Click for details</p>
+                
+                <div class="cert-gallery-wrapper">
+                    <button class="cert-nav-btn prev" aria-label="Previous">‹</button>
+                    
+                    <div class="cert-gallery" id="certGallery">
+                        <!-- Certifications will be populated by JavaScript -->
+                    </div>
+                    
+                    <button class="cert-nav-btn next" aria-label="Next">›</button>
+                </div>
+                
+                <div class="cert-counter">
+                    <span class="current">1</span> / <span class="total">10</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificate Modal -->
+        <div id="certModal" class="cert-modal">
+            <div class="cert-modal-content">
+                <button class="cert-modal-close" onclick="closeCertModal()">&times;</button>
+                <div class="cert-modal-header">
+                    <span class="cert-modal-icon" id="modalIcon"></span>
+                    <h3 id="modalCertName"></h3>
+                    <span class="cert-modal-status" id="modalStatus"></span>
+                </div>
+                <div class="cert-modal-body">
+                    <p class="cert-modal-full" id="modalFullName"></p>
+                    <p class="cert-modal-org"><strong>Issuer:</strong> <span id="modalOrg"></span></p>
+                    <p class="cert-modal-date" id="modalDate"></p>
+                    <div class="cert-modal-badge" id="modalBadge">
+                        <span class="badge-icon"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title glitch" data-text="PROJECTS.json">PROJECTS.json</h2>
+                <p class="section-subtitle">$ ls -la ~/security_projects/ --classification=tactical</p>
+                <div class="projects-grid" id="projectsContainer">
+                    <!-- Projects will be populated by JavaScript -->
+                </div>
+                <div class="projects-cta">
+                    <p>Interested in collaboration or have a security project in mind?</p>
+                    <button class="hacker-btn primary" onclick="scrollToSection('contact')">
+                        Let's Work Together
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title glitch" data-text="CONTACT.sh">CONTACT.sh</h2>
+                <p class="section-subtitle">$ ./initiate_secure_communication.sh --target=collaboration</p>
+                <div class="contact-grid">
+                    <div class="contact-methods-full">
+                        <div class="terminal">
+                            <div class="terminal-header">
+                                <div class="terminal-title">$ cat /etc/contact_methods.conf</div>
+                            </div>
+                            <div class="contact-list" id="contactMethods">
+                                <!-- Contact methods will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-info-side">
+                        <div class="terminal">
+                            <div class="terminal-header">
+                                <div class="terminal-title">$ cat /etc/security_notice.txt</div>
+                            </div>
+                            <div class="terminal-body">
+                                <div class="security-notice">
+                                    <h3>Get In Touch</h3>
+                                    <p>Feel free to reach out via any of the channels listed. I'm always open to discussing cybersecurity projects, collaboration opportunities, or answering questions about red teaming and digital forensics.</p>
+                                    <br>
+                                    <div class="notice-items">
+                                        <div class="notice-item">🔐 Professional consultations available</div>
+                                        <div class="notice-item">⚡ Response time: &lt; 24 hours</div>
+                                        <div class="notice-item">🛡️ NDAs available upon request</div>
+                                        <div class="notice-item">📍 Available for remote/on-site work</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Terminal Modal -->
+    <div id="terminalModal" class="terminal-modal">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <span class="control red"></span>
+                    <span class="control yellow"></span>
+                    <span class="control green"></span>
+                </div>
+                <div class="terminal-title">Security Terminal - ~/security_toolkit</div>
+                <button class="terminal-close" onclick="closeTerminal()">✕</button>
+            </div>
+            <div class="terminal-content" id="terminalContent">
+                <div>Welcome to V4R5H17H Security Terminal v2.1.0</div>
+                <div>Type "help" for available commands</div>
+                <div></div>
+            </div>
+            <div class="terminal-input-line">
+                <span class="terminal-prompt">~/security_toolkit$ </span>
+                <input type="text" id="terminalInput" class="terminal-input" autocomplete="off" spellcheck="false">
+            </div>
+            <div class="terminal-footer">
+                <span>Press TAB for autocomplete | Type "help" for commands</span>
+                <span>ESC to close</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Terminal Button -->
+    <button id="terminalBtn" class="terminal-btn" onclick="openTerminal()">$</button>
+
+    <!-- Scan Line Effect -->
+    <div class="scan-line"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
