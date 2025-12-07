@@ -387,6 +387,7 @@ const terminalCommands = {
     achievements: () => [
         'Awards & Recognition:',
         '',
+        '🏆 Winner - DSCI-EY Cybersecurity Hackathon 2025',
         '🏆 1st Position - CodeArena 2.0 (SIH25 Internal Hackathon), RRU',
         '🥈 1st Runner-up - Kurukshetra Hackathon (System Security), DRDO, DIA-SVPCoE',
         '🎯 Grand Finalist - Smart India Hackathon 2024',
