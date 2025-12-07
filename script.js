@@ -83,7 +83,8 @@ const certificationsData = [
         org: 'The SecOps Group',
         status: 'ongoing',
         icon: '⏳',
-        date: 'In Progress'
+        date: 'In Progress',
+        certificate: null
     },
     {
         abbr: 'CRT-COI',
@@ -91,7 +92,8 @@ const certificationsData = [
         org: 'CyberWarFare Labs (CWL)',
         status: 'completed',
         icon: '🎯',
-        date: '2024'
+        date: '2024',
+        certificate: 'certificates/CRT-COI.pdf'
     },
     {
         abbr: 'CRTA',
@@ -99,7 +101,8 @@ const certificationsData = [
         org: 'CyberWarFare Labs (CWL)',
         status: 'completed',
         icon: '🔴',
-        date: '2024'
+        date: '2024',
+        certificate: 'certificates/CRTA.pdf'
     },
     {
         abbr: 'CRT-ID',
@@ -107,7 +110,8 @@ const certificationsData = [
         org: 'CyberWarFare Labs (CWL)',
         status: 'completed',
         icon: '🏗️',
-        date: '2024'
+        date: '2024',
+        certificate: 'certificates/CRT-ID.pdf'
     },
     {
         abbr: 'MS Cyber Arch',
@@ -115,7 +119,8 @@ const certificationsData = [
         org: 'Microsoft',
         status: 'completed',
         icon: '🛡️',
-        date: '2024'
+        date: '2024',
+        certificate: 'certificates/Microsoft_Cybersecurity_Architect.pdf'
     },
     {
         abbr: 'CNSP',
@@ -123,7 +128,8 @@ const certificationsData = [
         org: 'The SecOps Group',
         status: 'completed',
         icon: '🌐',
-        date: '2024'
+        date: '2024',
+        certificate: 'certificates/CNSP.pdf'
     },
     {
         abbr: 'ISO 27001',
@@ -131,7 +137,8 @@ const certificationsData = [
         org: 'CQI IRCA / Mastermind',
         status: 'completed',
         icon: '📋',
-        date: '2024'
+        date: '2024',
+        certificate: 'certificates/ISO_Lead_Auditor.pdf'
     },
     {
         abbr: 'Win Forensics',
@@ -139,7 +146,8 @@ const certificationsData = [
         org: 'Belkasoft',
         status: 'completed',
         icon: '🔍',
-        date: '2024'
+        date: '2024',
+        certificate: 'certificates/Belkasoft_Windows_Forensics.pdf'
     },
     {
         abbr: 'OSForensics',
@@ -147,7 +155,8 @@ const certificationsData = [
         org: 'PassMark Software',
         status: 'completed',
         icon: '💾',
-        date: '2024'
+        date: '2024',
+        certificate: 'certificates/OSForensics.pdf'
     }
 ];
 
@@ -705,7 +714,16 @@ function openCertModal(cert) {
     modalFullName.textContent = cert.name;
     modalOrg.textContent = cert.org;
     modalDate.textContent = cert.date;
-    modalBadge.innerHTML = `<span class="badge-icon">${cert.status === 'ongoing' ? '⏳' : '✅'}</span>`;
+    
+    // Add View Certificate button if certificate exists
+    if (cert.certificate) {
+        modalBadge.innerHTML = `
+            <span class="badge-icon">✅</span>
+            <a href="${cert.certificate}" target="_blank" class="view-cert-btn">View Certificate</a>
+        `;
+    } else {
+        modalBadge.innerHTML = `<span class="badge-icon">${cert.status === 'ongoing' ? '⏳' : '✅'}</span>`;
+    }
     
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';

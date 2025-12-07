@@ -1745,11 +1745,32 @@ section {
     border: 1px solid var(--border-color);
     border-radius: 12px;
     margin-top: 15px;
+    text-align: center;
 }
 
 .cert-modal-badge .badge-icon {
     font-size: 4rem;
     display: block;
+}
+
+.view-cert-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, var(--matrix-green), var(--neon-blue));
+    color: var(--darker-bg);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 255, 65, 0.3);
+}
+
+.view-cert-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 255, 65, 0.5);
 }
 
 /* Responsive Design */
